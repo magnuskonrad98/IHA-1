@@ -22,4 +22,8 @@ def test_two_delimeters():
     assert add("1\n2") == 3
     assert add("2,0\n5\n3,1") == 11
     assert add("8\n8\n8\n8\n8") == 40
-    
+
+def test_greater_than_thousand():
+    assert add("1000,1000") == 2000
+    assert add("1001,1,1001") == 1
+    assert add("300000,2,4,9\n9999") == 15
