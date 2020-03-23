@@ -1,1 +1,3 @@
-print("hello world")
+def add(numbers):
+    if numbers == "":
+        return "0" 
