@@ -1,5 +1,8 @@
 import re
 
+class NegativeException(Exception):
+    pass
+
 def add(numbers):
     if numbers == "":
         return 0
