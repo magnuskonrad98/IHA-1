@@ -4,6 +4,11 @@ class NegativeException(Exception):
     pass
 
 def add(numbers):
+    if numbers[:2] == "//":
+        delimeter_str, numbers = numbers.split("\n")
+        delimeter = delimeter_str[2:]
+        numbers = numbers.replace(delimeter, ",")
+
     if numbers == "":
         return 0
 
@@ -22,4 +27,4 @@ def add(numbers):
         else:
             neg_str = ",".join(negative_list)
             raise NegativeException("Negatives not allowed:{}".format(neg_str))
-
+        

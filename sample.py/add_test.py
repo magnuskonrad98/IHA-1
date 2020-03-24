@@ -41,3 +41,12 @@ def test_negative_numbers():
     with pytest.raises(NegativeException) as excinfo:
         add("-1,-2\n-3,-4\n-5")
     assert "Negatives not allowed:-1,-2,-3,-4,-5" in str(excinfo.value)
+
+def test_different_delimeter():
+    assert add("//%\n1%2%3") == 6
+    assert add("//#$%\n5#$%5#$%8") == 18
+    assert add("//!\n1!2!10000!4!99999") == 7
+
+    with pytest.raises(NegativeException) as excinfo:
+        add("//python\n1python24python1001python-5python-3")
+    assert "Negatives not allowed:-5,-3" in str(excinfo.value)
